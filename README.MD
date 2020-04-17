@@ -26,7 +26,7 @@ Alternatively you may use this method Asynchronously, adding a Callback() parame
 example usage of 
 ```java
 final Player player = Bukkit.getPlayerExact("Exampleplayer");
-MAA.add(player, new Callback(){
+MAA.add(player, new CreateCallback(){
 	public void asyncAddPlayer(String link) {
 		//Your code goes in here
 	}	
