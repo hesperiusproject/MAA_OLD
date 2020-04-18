@@ -1,4 +1,5 @@
 
+
 # Minecraft Advertisement API
 ## Setup:
 Before you even start you will need to setup an Adf.ly account and enable API access. In your IDE add the .jar file to the Build-Path and then in the plugin.yml add `depend: [MAA]`. Copy the MMA.jar file in you plugins folder.
@@ -51,6 +52,7 @@ Then register this listener in you onEnable() method:
 onEnable(){
 	...//your other code
 	Bukkit.getPluginManager().registerEvents(new Example(), this);
+	RequestHandler.start();
 	...//your other code
 }
 ```
@@ -58,38 +60,38 @@ onEnable(){
  In case you don't like working with events, you can use the MAA.checkPlayer() method. **CAREFUL:** you should either work with events or with this method, as using both may cause some issues. 
 Examples:
 ```java
-	Player player = Bukkit.getPlayerExact("Exampleplayer");
+	Player player = Bukkit.getPlayerExact("ExamplePlayer");
 	boolean bool = MAA.checkPlayer(player);
 ```
- there is also the async variant:
+ There is also the async variant:
 ```java
-	final Player player = Bukkit.getPlayerExact("Exampleplayer");
+	final Player player = Bukkit.getPlayerExact("ExamplePlayer");
 	MAA.checkPlayer(player, new CheckCallback(){
 		public void asyncCheckPlayer(boolean bool){
 			//your code goes in here
 		}
 	});
 ```
-This method returns *false* whener the challenge has not been completed (i.e. while the ChallengeCompletionEvent has not fired for a certain player after you created a challenge). 
+This method returns *false* whenever the challenge has not been completed.
 Otherwise, wheter the challenge has been completed or there isn't one, the method will return always *true*.
 
 **Rembember**: the `MAA.checkPlayer()` method, unlike `MAA.hasCompleted()` (which you will learn more about in the next paragraph), always makes an HTTP request to the NodeJS server!
 
 ### Has the challenge been completed?
-You of course may need to check if the player has completed a challenge, and for that there exists the MAA.hasCompleted() method, example:
+You of course may need to check if the player has completed a challenge, and for that there's the MAA.hasCompleted() method, example:
 ```java
-	Player player = Bukkit.getPlayerExact("Exampleplayer");
+	Player player = Bukkit.getPlayerExact("ExamplePlayer");
 	boolean bool = MAA.hasCompleted(player);
 ```
-This method returns *false* whener the challenge has not been completed (i.e. while the ChallengeCompletionEvent has not fired for a certain player after you created a challenge). 
+This method returns *false* whenever the challenge has not been completed (i.e. while the ChallengeCompletionEvent has not fired for a certain player, after you created a challenge). 
 Otherwise, wheter the challenge has been completed or there isn't one, the method will return always *true*.
 
 ### Suggestions
-I really suggest putting the `MAA.clean()` method in `onDisable()`. This will remove any unused links of created challenges on the Adf.ly website, which otherwise you would have to do on you own.
+I really suggest putting the `MAA.clean()` method in `onDisable()`. This will remove any unused links of created challenges on the Adf.ly website, which otherwise you would have to do on your own.
 
 ## Other information
 ### Example:
-Following this [link](https://youtu.be/FjUq4_Bzpd4) you will see an example of how one could user this API. In the snipplet section, you will find the code used in the video.
+Following this [link](https://youtu.be/FjUq4_Bzpd4) you will see an example of how one could use this API. In the [snipplet](https://github.com/hesperiusproject/MAA/tree/master/Snipplet/src) section, you will find the code used in the video.
 
 ### Known issues:
 I suggest not reloading the plugin once it is enabled on the server for the following reason: allthough the MAA will still work fine, it will start outputting an error on every HTTP request in the console. This bug  is not caused by the plugin itself, but by the libraries it uses.
