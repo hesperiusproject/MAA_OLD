@@ -3,7 +3,7 @@
 ## Setup:
 Before you even start you will need to setup an Adf.ly account and enable API access. In your IDE add the .jar file to the Build-Path and then in the plugin.yml add `depend: [MAA]`. Copy the MMA.jar file in you plugins folder.
 
-> Attention: On the first load the plugin will automatically disable itself. You need to update the Adf.ly API access info in there and then specify on which domain the NodeJS is hosted.
+> Attention: On the first load the plugin will automatically disable itself. You need to update the Adf.ly API access info in the plugin.yml file and then specify on which domain the NodeJS is hosted.
 
 Now to NodeJS: open the folder which contains the server and through the command-terminal run `npm install package.json` to install the required libraries.
  Open **index.js** and edit the array named: **allowed_ips**. There you will need to add every IP adress of minecraft server using this API. By default the local IP (127.0.0.1) is already allowed, so if the minecraft-server is hosted on the same machine, you don't have to edit anything.
