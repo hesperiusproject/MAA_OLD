@@ -16,7 +16,7 @@ public class Main extends JavaPlugin {
 		if (this.getConfig().getInt("API.user_id") == 001) {
 			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',
 					"&c&lWARNING> Please update the config file with you authentication info!\n &fDisabling the plugin!"));
-			this.onDisable();
+			this.getPluginLoader().disablePlugin(this);
 		}
 		MAA.setDomain(this.getConfig().getString("API.domain"));
 		MAA.public_key = this.getConfig().getString("API.public_key");
