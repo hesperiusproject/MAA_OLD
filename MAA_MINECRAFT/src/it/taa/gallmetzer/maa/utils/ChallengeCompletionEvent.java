@@ -16,6 +16,7 @@ public class ChallengeCompletionEvent extends Event {
 		this.playerName = playerName; 
 		MAA.getChallenge(playerName).setBool(true);
 		RequestHandler.deleteLink(MAA.getChallenge(playerName).getID());
+		MAA.hasCompleted(playerName);
 	}
 
 	public HandlerList getHandlers() {
