@@ -25,8 +25,8 @@ Player player = Bukkit.getPlayerExact("Exampleplayer");
 String link = MAA.add(player);
 ```
 
-Alternatively you may use this method Asynchronously, adding a Callback() parameter
-example usage of 
+Alternatively you may use this method Asynchronously, adding a CreateCallback() parameter.
+Example:
 ```java
 final Player player = Bukkit.getPlayerExact("Exampleplayer");
 MAA.add(player, new CreateCallback(){
