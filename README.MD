@@ -100,7 +100,3 @@ If you have a problem or suggestion, you can email my at giovanni@gallmetzer.taa
 ### TO-DO
 I plan on creating a maven-repository to make it easier than ever to work with my API!
 
-
-## License
-![enter image description here](https://i.creativecommons.org/l/by/4.0/88x31.png)
-This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
