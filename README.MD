@@ -35,7 +35,7 @@ MAA.add(player, new CreateCallback(){
 ```
 ### Events:
 MAA uses the Bukkit Event-API to fetch completed challenges.
-To start listening for completed challenges, you will first need to run the `RequestHandler.start()` method (you should add this to onEnable() in you plugin) and then register a listener for the "ChallengeCompletionEvent":
+To start listening for completed challenges, you will first need to run the `RequestHandler.start()` method and then register a listener for the "ChallengeCompletionEvent":
 ```java
 public class Example implements Listener{
 	@EventHandler
@@ -86,6 +86,9 @@ Otherwise, wheter the challenge has been completed or there isn't one, the metho
 I really suggest putting the `MAA.clean()` method in `onDisable()`. This will remove any unused links of created challenges on the Adf.ly website, which otherwise you would have to do on you own.
 
 ## Other information
+### Example:
+Following this [link](https://youtu.be/FjUq4_Bzpd4) you will see an example of how one could user this API. In the snipplet section, you will find the code used in the video.
+
 ### Known issues:
 I suggest not reloading the plugin once it is enabled on the server for the following reason: allthough the MAA will still work fine, it will start outputting an error on every HTTP request in the console. This bug  is not caused by the plugin itself, but by the libraries it uses.
 ### Get in touch
