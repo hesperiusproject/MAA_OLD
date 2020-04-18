@@ -35,7 +35,7 @@ MAA.add(player, new CreateCallback(){
 ```
 ### Events:
 MAA uses the Bukkit Event-API to fetch completed challenges.
-To start listening for completed challenges, you will first need to run the `RequestHandler.start()` method and then register a listener for the "ChallengeCompletionEvent":
+To start listening for completed challenges, you will first need to run the `RequestHandler.start()` method (you should add this to onEnable() in you plugin) and then register a listener for the "ChallengeCompletionEvent":
 ```java
 public class Example implements Listener{
 	@EventHandler
