@@ -71,7 +71,7 @@ public class RequestHandler {
 	}
 
 	@SuppressWarnings("deprecation")
-	public static void checker() {
+	public static void start() {
 
 		BukkitScheduler scheduler = Main.get().getServer().getScheduler();
 		scheduler.scheduleAsyncRepeatingTask(Main.get(), new Runnable() {
@@ -108,8 +108,6 @@ public class RequestHandler {
 								JsonParser s = new JsonParser();
 								JsonObject obj = (JsonObject) s.parse(toGo);
 								for (Object o : obj.getAsJsonArray("active")) {
-									Bukkit.getConsoleSender()
-											.sendMessage(o.toString().substring(1, o.toString().length() - 1));
 									ChallengeCompletionEvent event = new ChallengeCompletionEvent(Bukkit.getPlayer(
 											UUID.fromString(o.toString().substring(1, o.toString().length() - 1))));
 									Bukkit.getPluginManager().callEvent(event);
