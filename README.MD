@@ -11,7 +11,7 @@ If you've done everything correclty, when you load the NodeJS server and then th
 
 ## How to use:
 Once everything is setup, we can get into coding! 
-### Adding a Challenge
+### Creating a Challenge
 To create a "Challenge", or an adf.ly link, you can use following methods:
 
 ```java
@@ -35,7 +35,7 @@ MAA.add(player, new CreateCallback(){
 ```
 ### Events:
 MAA uses the Bukkit Event-API to fetch completed challenges.
-To start listening for completed challenges, you will first need to need to register a listener for the "ChallengeCompletionEvent":
+To start listening for completed challenges, you will first need to run the `RequestHandler.start()` method and then register a listener for the "ChallengeCompletionEvent":
 ```java
 public class Example implements Listener{
 	@EventHandler
@@ -53,13 +53,13 @@ onEnable(){
 }
 ```
 
-> In case you don't like working with events, you can use the MAA.checkPlayer() method. **CAREFUL:** you should either work with events or with this method, as using both may cause some issues. 
-> Examples:
+ In case you don't like working with events, you can use the MAA.checkPlayer() method. **CAREFUL:** you should either work with events or with this method, as using both may cause some issues. 
+Examples:
 ```java
 	Player player = Bukkit.getPlayerExact("Exampleplayer");
 	boolean bool = MAA.checkPlayer(player);
 ```
-> there is also the async variant:
+ there is also the async variant:
 ```java
 	final Player player = Bukkit.getPlayerExact("Exampleplayer");
 	MAA.checkPlayer(player, new CheckCallback(){
@@ -68,6 +68,10 @@ onEnable(){
 		}
 	});
 ```
+This method returns *false* whener the challenge has not been completed (i.e. while the ChallengeCompletionEvent has not fired for a certain player after you created a challenge). 
+Otherwise, wheter the challenge has been completed or there isn't one, the method will return always *true*.
+
+**Rembember**: the `MAA.checkPlayer()` method, unlike `MAA.hasCompleted()` (which you will learn more about in the next paragraph), always makes an HTTP request to the NodeJS server!
 
 ### Has the challenge been completed?
 You of course may need to check if the player has completed a challenge, and for that there exists the MAA.hasCompleted() method, example:
@@ -77,9 +81,17 @@ You of course may need to check if the player has completed a challenge, and for
 ```
 This method returns *false* whener the challenge has not been completed (i.e. while the ChallengeCompletionEvent has not fired for a certain player after you created a challenge). 
 Otherwise, wheter the challenge has been completed or there isn't one, the method will return always *true*.
+
+### Suggestions
+I really suggest putting the `MAA.clean()` method in `onDisable()`. This will remove any unused links of created challenges on the Adf.ly website, which otherwise you would have to do on you own.
+
 ## Other information
 ### Known issues:
 I suggest not reloading the plugin once it is enabled on the server for the following reason: allthough the MAA will still work fine, it will start outputting an error on every HTTP request in the console. This bug  is not caused by the plugin itself, but by the libraries it uses.
+### Get in touch
+If you have a problem or suggestion, you can email my at giovanni@gallmetzer.taa.it or send a PM to my discord **Gio#4621** .
+### TO-DO
+I plan on creating a maven-repository to make it easier than ever to work with my API!
 
 
 ## License
