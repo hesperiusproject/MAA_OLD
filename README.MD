@@ -1,3 +1,4 @@
+
 # Minecraft Advertisement API
 ## Setup:
 Before you even start you will need to setup an Adf.ly account and enable API access. In your IDE add the .jar file to the Build-Path and then in the plugin.yml add `depend: [MAA]`. Place the MMA.jar file in you plugins folder.
@@ -34,7 +35,7 @@ MAA.add(player, new CreateCallback(){
 ```
 ### Events:
 MAA uses the Bukkit Event-API to fetch completed challenges.
-To receive completed challenges, you will need to register a listener for the "ChallengeCompletionEvent":
+To start listening for completed challenges, you will first need to need to register a listener for the "ChallengeCompletionEvent":
 ```java
 public class Example implements Listener{
 	@EventHandler
@@ -51,6 +52,23 @@ onEnable(){
 	...//your other code
 }
 ```
+
+> In case you don't like working with events, you can use the MAA.checkPlayer() method. **CAREFUL:** you should either work with events or with this method, as using both may cause some issues. 
+> Examples:
+```java
+	Player player = Bukkit.getPlayerExact("Exampleplayer");
+	boolean bool = MAA.checkPlayer(player);
+```
+> there is also the async variant:
+```java
+	final Player player = Bukkit.getPlayerExact("Exampleplayer");
+	MAA.checkPlayer(player, new CheckCallback(){
+		public void asyncCheckPlayer(boolean bool){
+			//your code goes in here
+		}
+	});
+```
+
 ### Has the challenge been completed?
 You of course may need to check if the player has completed a challenge, and for that there exists the MAA.hasCompleted() method, example:
 ```java
