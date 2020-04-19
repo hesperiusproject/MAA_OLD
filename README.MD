@@ -38,6 +38,7 @@ MAA.add(player, new CreateCallback(){
 	}	
 });
 ```
+**Careful**: you can only create one challenge per player!
 ### Events:
 MAA uses the Bukkit Event-API to fetch completed challenges.
 To start listening for completed challenges, you will first need to run the `RequestHandler.start()` method and then register a listener for the "ChallengeCompletionEvent":
@@ -87,6 +88,10 @@ You of course may need to check if the player has completed a challenge, and for
 ```
 This method returns *false* whenever the challenge has not been completed (i.e. while the ChallengeCompletionEvent has not fired for a certain player, after you created a challenge). 
 Otherwise, wheter the challenge has been completed or there isn't one, the method will return always *true*.
+
+#### Error handling
+I don't I can really call it error handling, but in case something goes wrong in the MAA.addChallenge method, an error-string is returned, there are three types: "Error 1" is for when there's a problem with the NodeJS server; "Error 2" when there's a problem with Adf.ly API and "Error 3" when a challenge already exists for a player.
+
 
 ### Suggestions
 I really suggest putting the `MAA.clean()` method in `onDisable()`. This will remove any unused links of created challenges on the Adf.ly website, which otherwise you would have to do on your own.
