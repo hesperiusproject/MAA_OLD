@@ -10,7 +10,9 @@ Now to NodeJS: open the folder which contains the server and through the command
  Open **index.js** and edit the array named: **allowed_ips**. There you will need to add every IP adress of minecraft server using this API. By default the local IP (127.0.0.1) is already allowed, so if the minecraft-server is hosted on the same machine, you don't have to edit anything.
  To run the server type `node index.js`.
 
-If you've done everything correclty, when you load the NodeJS server and then the minecraft one, everything should work fine.
+In the NodeJS-server folder, you'll notice there are two .html files present. You may edit them as you wish, but make sure their names don't change (success.html and error.html).
+
+If you've done everything correclty, when you load the NodeJS server and then the minecraft one, everything should work fine. 
 
 ## How to use:
 Once everything is setup, we can get into coding! 
@@ -99,4 +101,5 @@ I suggest not reloading the plugin once it is enabled on the server for the foll
 If you have a problem or suggestion, you can email my at giovanni@gallmetzer.taa.it or send a PM to my discord **Gio#4621** .
 ### TO-DO
 I plan on creating a maven-repository to make it easier than ever to work with my API!
+
 
