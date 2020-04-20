@@ -1,0 +1,16 @@
+main: ga.hesperiusproject.practice.Main
+name: Craft
+version: 1.0
+commands:
+   test:
+      description: Your description
+      usage: /kit
+   createMatch:
+      description: Your description
+      usage: /kit
+   setPS:
+      description: Your description
+      usage: /kit
+   duel:
+      description: Your description
+      usage: /kit

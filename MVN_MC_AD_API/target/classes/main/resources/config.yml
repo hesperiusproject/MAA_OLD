@@ -1,0 +1,5 @@
+API:
+   public_key: "YOUR-ADFLY-PUBLIC-KEY"
+   secret_key: "YOUR-ADFLY-SECRET-KEY"
+   user_id: 001 #Your user ID
+   domain: "yourdomain.com:2000" # 2000 is the default port of the NodeJS server.
