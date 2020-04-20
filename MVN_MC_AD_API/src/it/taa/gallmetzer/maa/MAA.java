@@ -37,13 +37,14 @@ public class MAA<T extends JavaPlugin> {
 		maa = this;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public static MAA get() {
 		return maa;
 	}
 	
 	
-	public  void addChallenge(final Player p, final CreateCallback b) {
-		Bukkit.getScheduler().runTaskAsynchronously(plugin, new Runnable() {
+	public static  void addChallenge(final Player p, final CreateCallback b) {
+		Bukkit.getScheduler().runTaskAsynchronously(MAA.get().plugin, new Runnable() {
 			public void run() {
 				if (MAA.getChallenge(p) != null) {
 					b.asyncAddPlayer("Error 3");
@@ -99,11 +100,11 @@ public class MAA<T extends JavaPlugin> {
 
 	}
 
-	public boolean checkPlayer(Player p) {
+	public static boolean checkPlayer(Player p) {
 		boolean complete = RequestHandler.checkPlayer(p);
 		if (complete) {
 			MAA.getChallenge(p).setBool(true);
-			RequestHandler.deleteLink(MAA.getChallenge(p).getID(), this.plugin);
+			RequestHandler.deleteLink(MAA.getChallenge(p).getID(), MAA.get().plugin);
 			MAA.hasCompleted(p);
 
 		} else if (!complete && MAA.getChallenge(p) == null) {
@@ -112,15 +113,15 @@ public class MAA<T extends JavaPlugin> {
 		return complete;
 	}
 
-	public void checkPlayer(final Player p, final CheckCallback c) {
-		final T plug = this.plugin;
-		Bukkit.getScheduler().runTaskAsynchronously(plugin, new Runnable() {
+	public static void checkPlayer(final Player p, final CheckCallback c) {
+		
+		Bukkit.getScheduler().runTaskAsynchronously(MAA.get().plugin, new Runnable() {
 
 			public void run() {
 				boolean complete = RequestHandler.checkPlayer(p);
 				if (complete) {
 					MAA.getChallenge(p).setBool(true);
-					RequestHandler.deleteLink(MAA.getChallenge(p).getID(), plug);
+					RequestHandler.deleteLink(MAA.getChallenge(p).getID(), MAA.get().plugin);
 					MAA.hasCompleted(p);
 
 				} else if (!complete && MAA.getChallenge(p) == null) {
