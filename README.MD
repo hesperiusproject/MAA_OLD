@@ -12,7 +12,11 @@ Before you even start you will need to setup an Adf.ly account and enable API ac
 > Attention: On the first load the plugin will automatically disable itself. You need to update the Adf.ly API access info in the config.yml file found in the plugin folder and then specify on which domain the NodeJS is hosted.
 
 ### As a library in you IDE
-Just drag and drop all files found in this [folder](https://github.com/hesperiusproject/MAA/tree/master/drag_n_drop/src) into the source of your project folder. The methods remain the same, with the difference that there will not be a `config.yml` file to edit, you will directly pass all that information in the constructor:
+Add this [Jar-file](https://github.com/hesperiusproject/MAA/blob/master/drag_n_drop/MAA_Lib.jar) to your plugins Build-Path.
+
+> In eclipse, you'll need to use Fatjar to include the API and all its libraries into your plugin, otherwise you'll have to do that manually!
+
+ The methods remain the same, with the difference that there will not be a `config.yml` file to edit, you will directly pass all that information in the constructor:
 ```java
 new MAA(Plugin plugin, String domain, String public_key, String secret_key, int user_id);
 ```
