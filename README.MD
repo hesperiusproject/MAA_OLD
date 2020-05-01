@@ -1,11 +1,23 @@
 
 
+
 # Minecraft Advertisement API
 ## Setup:
+
+
+
+### As a Plugin
 Before you even start you will need to setup an Adf.ly account and enable API access. In your IDE add the .jar file to the Build-Path and then in the plugin.yml add `depend: [MAA]`. Copy the MMA.jar file in you plugins folder.
 
 > Attention: On the first load the plugin will automatically disable itself. You need to update the Adf.ly API access info in the config.yml file found in the plugin folder and then specify on which domain the NodeJS is hosted.
 
+### As a library in you IDE
+Just drag and drop all files found in this [folder](https://github.com/hesperiusproject/MAA/tree/master/drag_n_drop/src) into the source of your project folder. The methods remain the same, with the difference that there will not be a `config.yml` file to edit, you will directly pass all that information in the constructor:
+```java
+new MAA(Plugin plugin, String domain, String public_key, String secret_key, int user_id);
+```
+After you've done that you can access all the methods statically as shown below. If you skip this step, the API will not work!
+### NodeJS backend setup
 Now to NodeJS: open the folder which contains the server and through the command-terminal run `npm install package.json` to install the required libraries.
  Open **index.js** and edit the array named: **allowed_ips**. There you will need to add every IP adress of minecraft server using this API. By default the local IP (127.0.0.1) is already allowed, so if the minecraft-server is hosted on the same machine, you don't have to edit anything.
  To run the server type `node index.js`.
