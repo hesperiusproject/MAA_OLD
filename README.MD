@@ -119,7 +119,7 @@ Following this [link](https://youtu.be/FjUq4_Bzpd4) you will see an example of h
 ### Known issues:
 I suggest not reloading the plugin once it is enabled on the server for the following reason: allthough the MAA will still work fine, it will start outputting an error on every HTTP request in the console. This bug  is not caused by the plugin itself, but by the libraries it uses.
 ### Get in touch
-If you have a problem or suggestion, you can email my at giovanni@gallmetzer.taa.it or send a PM to my discord **Gio#4621** .
+If you have a problem or suggestion, you can email my at info@hesperius.it or send a PM to my discord **Gio#4621** .
 ### TO-DO
 I plan on creating a maven-repository to make it easier than ever to work with my API!
 
